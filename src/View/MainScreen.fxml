@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="630.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehubicka.Controller.MainScreen">
+   <children>
+      <Label layoutX="29.0" layoutY="323.0" text="Customers">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="16.0" text="Appointments">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Button layoutX="939.0" layoutY="289.0" mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="50.0" prefWidth="70.0" text="Logout" />
+      <Button layoutX="856.0" layoutY="289.0" mnemonicParsing="false" onAction="#onReportClick" prefHeight="50.0" prefWidth="70.0" text="Report" />
+      <TableView fx:id="customersTable" layoutX="31.0" layoutY="366.0" prefHeight="200.0" prefWidth="980.0">
+        <columns>
+          <TableColumn fx:id="customerIdCol" prefWidth="100.0" text="Customer ID" />
+          <TableColumn fx:id="customerNameCol" prefWidth="120.0" text="Name" />
+            <TableColumn fx:id="customerPhoneCol" prefWidth="120.0" text="Phone Number" />
+            <TableColumn fx:id="customerCountryCol" prefWidth="120.0" text="Country" />
+            <TableColumn fx:id="customerDivisionCol" prefWidth="120.0" text="First-Level Division" />
+            <TableColumn fx:id="customerPostalCol" prefWidth="120.0" text="Postal Code" />
+            <TableColumn fx:id="customerAddressCol" prefWidth="275.0" text="Address" />
+        </columns>
+      </TableView>
+      <Button layoutX="31.0" layoutY="580.0" mnemonicParsing="false" onAction="#onAddCustomerClick" prefHeight="25.0" prefWidth="70.0" text="Add" />
+      <Button layoutX="114.0" layoutY="580.0" mnemonicParsing="false" onAction="#onUpdateCustomerClick" prefHeight="25.0" prefWidth="70.0" text="Update" />
+      <Button layoutX="194.0" layoutY="580.0" mnemonicParsing="false" onAction="#onDeleteCustomerClick" prefHeight="25.0" prefWidth="70.0" text="Delete" />
+      <TableView fx:id="appointmentsTable" layoutX="32.0" layoutY="59.0" prefHeight="200.0" prefWidth="980.0">
+         <columns>
+            <TableColumn fx:id="appointmentIdCol" prefWidth="100.0" text="Appointment ID" />
+            <TableColumn fx:id="appointmentTitleCol" minWidth="4.57147216796875" prefWidth="87.42852783203125" text="Title" />
+            <TableColumn fx:id="appointmentDescriptionCol" text="Description" />
+            <TableColumn fx:id="appointmentLocationCol" text="Location" />
+            <TableColumn fx:id="appointmentContactCol" text="Contact" />
+            <TableColumn fx:id="appointmentTypeCol" text="Type" />
+            <TableColumn fx:id="appointmentStartCol" prefWidth="153.0" text="Start Date/Time" />
+            <TableColumn fx:id="appointmentEndCol" prefWidth="153.0" text="End Date/Time" />
+            <TableColumn fx:id="appointmentCustomerIdCol" text="Customer ID" />
+            <TableColumn fx:id="appointmentUserIdCol" text="User ID" />
+         </columns>
+      </TableView>
+      <Button layoutX="32.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAddAppointmentClick" prefHeight="25.0" prefWidth="70.0" text="Add" />
+      <Button layoutX="115.0" layoutY="273.0" mnemonicParsing="false" onAction="#onUpdateAppointmentClick" prefHeight="25.0" prefWidth="70.0" text="Update" />
+      <Button layoutX="194.0" layoutY="273.0" mnemonicParsing="false" onAction="#onDeleteAppointmentClick" prefHeight="25.0" prefWidth="70.0" text="Delete" />
+      <RadioButton fx:id="allRB" layoutX="404.0" layoutY="38.0" mnemonicParsing="false" onAction="#allAppointmentsRb" selected="true" text="All Appointments">
+         <toggleGroup>
+            <ToggleGroup fx:id="appointmentView" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="monthRB" layoutX="543.0" layoutY="38.0" mnemonicParsing="false" onAction="#currentMonthRb" text="Current Month" toggleGroup="$appointmentView" />
+      <RadioButton fx:id="weekRB" layoutX="671.0" layoutY="38.0" mnemonicParsing="false" onAction="#currentWeekRb" text="Current Week" toggleGroup="$appointmentView" />
+      <Button layoutX="716.0" layoutY="578.0" mnemonicParsing="false" onAction="#onUpdateTimesClick" prefHeight="36.0" prefWidth="89.0" text="Update Times" />
+      <Label layoutX="818.0" layoutY="568.0" text="Local" />
+      <Label fx:id="localDateTime" layoutX="856.0" layoutY="568.0" />
+      <Label layoutX="818.0" layoutY="587.0" text="UTC" />
+      <Label fx:id="utcDateTime" layoutX="856.0" layoutY="587.0" />
+      <Label layoutX="818.0" layoutY="607.0" text="EST" />
+      <Label fx:id="estDateTime" layoutX="856.0" layoutY="607.0" />
+   </children>
+</AnchorPane>
